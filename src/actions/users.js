@@ -32,7 +32,7 @@ export function handleSaveQuestionAnswer(authUser, qid, answer) {
   };
 }
 
-export function addQuestionsToUser({ id, author }) {
+export function addQuestionToUser({ id, author }) {
   return {
     type: ADD_QUESTION_TO_USER,
     id,
