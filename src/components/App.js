@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Grid } from 'semantic-ui-react';
 import { handleInitialData } from '../actions/shared';
 import { connect } from 'react-redux';
-import Login from './Login';
+import SignIn from './SignIn';
 import Nav from './Nav';
 import Home from './Home';
 import UserCard from './UserCard';
-import NewPoll from './NewPoll';
+import NewQuestion from './NewQuestion';
 import Leaderboard from './Leaderboard';
-import NoMatch from './NoMatch';
 
 class App extends Component {
   componentDidMount() {
@@ -24,7 +23,7 @@ class App extends Component {
             <Route
               render={() => (
                 <ContentGrid>
-                  <Login />
+                  <SignIn />
                 </ContentGrid>
               )}
             />
@@ -34,11 +33,9 @@ class App extends Component {
               <ContentGrid>
                 <Switch>
                   <Route exact path="/" component={Home} />
-                  <Route path="/questions/bad_id" component={NoMatch} />
                   <Route path="/questions/:question_id" component={UserCard} />
-                  <Route path="/add" component={NewPoll} />
+                  <Route path="/add" component={NewQuestion} />
                   <Route path="/leaderboard" component={Leaderboard} />
-                  <Route component={NoMatch} />
                 </Switch>
               </ContentGrid>
             </Fragment>

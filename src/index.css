@@ -32,19 +32,19 @@ code {
 .tab .ui.tabular.menu .active.item {
   background: none #fff;
 }
-/* poll quesion page */
+/* quesion page */
 .ui.radio.checkbox {
   margin-left: 20px;
   margin-bottom: 4px;
 }
-/* poll results page */
+/* results page */
 i.compact.icon {
   margin: 0 .5em 0 0!important;
 }
 .ui.ribbon.label.vote {
   margin-bottom: 8px;
 }
-/* login page row spacing */
+/* sign in page row spacing */
 .footer {
   text-align: center;
   font-size: .85em;
@@ -59,9 +59,3 @@ i.compact.icon {
   padding-top: .5em;
   padding-bottom: .5em;
 }
-
-/* @media screen and (max-width: 650px) {
-  html, body {
-    font-size: 16px;
-  }
-} */

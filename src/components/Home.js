@@ -19,7 +19,7 @@ const panes = props => {
   const { userQuestionData } = props;
   return [
     {
-      menuItem: 'Unanswered',
+      menuItem: 'Unanswered Questions',
       render: () => (
         <Tab.Pane>
           {userQuestionData.answered.map(question => (
@@ -33,7 +33,7 @@ const panes = props => {
       )
     },
     {
-      menuItem: 'Answered',
+      menuItem: 'Answered Questions',
       render: () => (
         <Tab.Pane>
           {userQuestionData.unanswered.map(question => (

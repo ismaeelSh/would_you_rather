@@ -13,7 +13,7 @@ import {
 } from 'semantic-ui-react';
 import { handleSaveQuestion } from '../actions/questions';
 
-export class NewPoll extends Component {
+export class NewQuestion extends Component {
   static propTypes = {
     authUser: PropTypes.string.isRequired,
     handleSaveQuestion: PropTypes.func.isRequired
@@ -102,4 +102,4 @@ function mapStateToProps({ authUser }) {
 export default connect(
   mapStateToProps,
   { handleSaveQuestion }
-)(NewPoll);
+)(NewQuestion);

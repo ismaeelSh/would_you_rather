@@ -1,12 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Header, Button, Form, Radio } from 'semantic-ui-react';
+import { handleSaveQuestionAnswer } from '../actions/users';
 
 export class PollQuestion extends Component {
   static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-    optionOne: PropTypes.object.isRequired,
-    optionTwo: PropTypes.object.isRequired
+    authUser: PropTypes.string.isRequired,
+    handleSaveQuestionAnswer: PropTypes.func.isRequired,
+    question: PropTypes.object.isRequired
   };
   state = {
     value: ''
@@ -17,12 +19,13 @@ export class PollQuestion extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.value !== '') {
-      this.props.onSubmit(this.state.value);
+      const { authUser, question, handleSaveQuestionAnswer } = this.props;
+      handleSaveQuestionAnswer(authUser, question.id, this.state.value);
     }
   };
 
   render() {
-    const { optionOne, optionTwo } = this.props;
+    const { question } = this.props;
     const disabled = this.state.value === '' ? true : false;
 
     return (
@@ -31,7 +34,7 @@ export class PollQuestion extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
             <Radio
-              label={optionOne.text}
+              label={question.optionOne.text}
               name="radioGroup"
               value="optionOne"
               checked={this.state.value === 'optionOne'}
@@ -39,7 +42,7 @@ export class PollQuestion extends Component {
             />
             <br />
             <Radio
-              label={optionTwo.text}
+              label={question.optionTwo.text}
               name="radioGroup"
               value="optionTwo"
               checked={this.state.value === 'optionTwo'}
@@ -62,4 +65,13 @@ export class PollQuestion extends Component {
   }
 }
 
-export default PollQuestion;
+function mapStateToProps({ authUser }, { match }) {
+  return {
+    authUser
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { handleSaveQuestionAnswer }
+)(PollQuestion);

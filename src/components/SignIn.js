@@ -12,7 +12,7 @@ import {
 } from 'semantic-ui-react';
 import { setAuthUser } from '../actions/authUser';
 
-export class Login extends Component {
+export class SignIn extends Component {
   state = {
     loading: false
   };
@@ -31,11 +31,6 @@ export class Login extends Component {
             loading={this.state.loading}
           />
         </Segment.Group>
-        <footer className="footer">
-          <a href="https://www.freepik.com/free-photos-vectors/design">
-            Avatar characters created by freepik - www.freepik.com
-          </a>
-        </footer>
       </Fragment>
     );
   }
@@ -68,7 +63,7 @@ const LoginGridLayout = ({ image, form, loading }) => (
 );
 
 const BrandImage = () => (
-  <Image src="/images/avatars/animals.png" size="medium" centered />
+  <Image src="/img/loginHero.png" size="medium" centered />
 );
 
 class LoginForm extends Component {
@@ -120,7 +115,7 @@ class LoginForm extends Component {
           onChange={this.onChange}
           required
         />
-        <Form.Button content="Login" positive disabled={disabled} fluid />
+        <Form.Button content="SignIn" positive disabled={disabled} fluid />
       </Form>
     );
   }
@@ -137,4 +132,4 @@ function mapStateToProps({ users }) {
   };
 }
 
-export default Login;
+export default SignIn;
